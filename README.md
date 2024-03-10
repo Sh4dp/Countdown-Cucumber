@@ -13,7 +13,7 @@ Countdown Cucumber is a customizable pomodoro timer that aim to help you focus o
 
 ## Get Started 
 To use the Countdown Cucumber website: 
-https://drive.google.com/file/d/1lqUjA8rz1w3RLddSxP7WeIuCD5yeTRzR/view?usp=drive_link
+https://drive.google.com/file/d/1Ph1QyoxzjJ8S7nPj85KHZ_z7XtPSWtRj/view?usp=sharing
 
 ## Interface 
 
