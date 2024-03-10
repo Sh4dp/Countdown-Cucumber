@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Cucumber</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Riot&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: burlywood;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+            font-family: 'Protest Riot', sans-serif; /* Change the font family as needed */
+            font-style: bold; /* Change the font style (italic, normal, oblique, etc.) */
+            font-weight: normal;
+            text-align: right;
+        }
+        .timer {
+            font-size: 90px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button {
+            font-size: 18px;
+            padding:10px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        buttons{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+<h1>Countdown Cucumber</h1>
+<div id="timer">25:00</div>
+<div class="buttons">
+<button id="start">Start</button>
+<button id="pause">Pause</button>
+<button id="reset">Reset</button>
+<button id="shortBreak">Short Break</button>
+<button id="longBreak">Long Break</button>
+</div>
+<script>
+  let timerInterval;
+  let timeLeft = 25 * 60;
+  let isPaused = false;
+
+  function startTimer() {
+    timerInterval = setInterval(updateTimer, 1000);
+  }
+
+  function pauseTimer() {
+    clearInterval(timerInterval);
+  }
+
+  function resetTimer() {
+    clearInterval(timerInterval);
+    timeLeft = 25 * 60;
+    updateTimerDisplay();
+  }
+
+  function startBreak(duration) {
+    clearInterval(timerInterval);
+    timeLeft = duration * 60;
+    updateTimerDisplay();
+    startTimer();
+  }
+
+  function updateTimer() {
+    if (timeLeft > 0) {
+      timeLeft--;
+      updateTimerDisplay();
+    } else {
+      clearInterval(timerInterval);
+      alert('Time is up!');
+      // Automatically start break timer or do whatever is needed next
+    }
+  }
+
+  function updateTimerDisplay() {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    document.getElementById('timer').innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  }
+
+  document.getElementById('start').addEventListener('click', () => {
+    startTimer();
+  });
+
+  document.getElementById('pause').addEventListener('click', () => {
+    pauseTimer();
+  });
+
+  document.getElementById('reset').addEventListener('click', () => {
+    resetTimer();
+  });
+
+  document.getElementById('shortBreak').addEventListener('click', () => {
+    startBreak(5);
+  });
+
+  document.getElementById('longBreak').addEventListener('click', () => {
+    startBreak(15);
+  });
+
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style>
+        body {
+            font-family:'Protest Riot', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>To do List</h2>
+        <form id="todoForm">
+            <input type="text" id="todoInput" placeholder="Add new to-do">
+            <button type="submit">Add</button>
+        </form>
+        <ul id="todoList">
+            <!-- Todo items will be dynamically added here -->
+        </ul>
+    </div>
+
+    <script>
+        const todoForm = document.getElementById('todoForm');
+        const todoInput = document.getElementById('todoInput');
+        const todoList = document.getElementById('todoList');
+
+        todoForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const todoText = todoInput.value.trim();
+            if (todoText !== '') {
+                addTodoItem(todoText);
+                todoInput.value = '';
+            }
+        });
+
+        function addTodoItem(todoText) {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <input type="checkbox">
+                <span>${todoText}</span>
+                <button onclick="removeTodoItem(this)">Remove</button>
+            `;
+            todoList.appendChild(li);
+        }
+
+        function removeTodoItem(button) {
+            const li = button.parentElement;
+            li.remove();
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Image Example</title>
+    <style>
+        body {
+            background-image: url('three.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+            background-size: cover; /* Adjusts the size of the background image to cover the entire viewport */
+            background-position: center; /* Centers the background image */
+            background-repeat: no-repeat; /* Prevents the background image from repeating */
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+    <!-- Your content goes here -->
+</body>
+</html>
