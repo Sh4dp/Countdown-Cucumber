@@ -12,4 +12,10 @@ Countdown Cucumber is a customizable pomodoro timer that aim to help you focus o
   Allow the users to  pause , resume , reset Pomodoro sessions  as needed . Long break of 15 minutes and short break of 5 minutes are provided to enhance the efficiency of the  user .
 
 ## Get Started 
-To use the Countdown Cucumber website: https://github.com/Sh4dp/Countdown-Cucumber.git
+To use the Countdown Cucumber website: 
+file:///C:/Users/vrind/Desktop/hack/frontend.html
+
+## Interface 
+
+
+<img width="809" alt="ss" src="https://github.com/Sh4dp/Countdown-Cucumber/assets/162804244/27f98b3f-1fec-4870-8968-fd14f404ee68">
