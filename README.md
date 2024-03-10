@@ -3,11 +3,13 @@ Countdown Cucumber is a customizable pomodoro timer that aim to help you focus o
 
 ## Features
 
-** Reminders** : Intermediate messages during the work to encourage user .
+* To Do List :
 
-** To Do List** : You can add and manage tasks by editing and deleting tasks .
+   You can add tasks to do and manage tasks by tick marking the completed ones and removing unnecessary tasks.
+  
+* Timer Controls :
 
-** Timer Controls** : Allow the users to  pause , resume , reset Pomodoro sessions  as needed .
+  Allow the users to  pause , resume , reset Pomodoro sessions  as needed . Long break of 15 minutes and short break of 5 minutes are provided to enhance the efficiency of the  user .
 
 ## Get Started 
 To use the Countdown Cucumber website , click here :
